@@ -19,8 +19,8 @@ export default {
 </script>
 
 <style scoped>
-header {
-  background-color: #d5dbdb;
+.container-fluid {
+  background-color: #129e9e;
 }
 .nav-link {
   color: black;
