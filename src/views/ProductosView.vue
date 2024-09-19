@@ -6,6 +6,12 @@
       <ProductoCard title="Bienvenido" content="Esta es la página de inicio de la tienda online." />
       <ProductoCard title="Ofertas" content="¡Revisa nuestras últimas ofertas!" />
       <ProductoCard title="Contacto" content="¡Síguenos en nuestras redes sociales para no perderte de las últimas novedades"></ProductoCard>
+      <ProductoCard title="Contacto" content="¡Síguenos en nuestras redes sociales para no perderte de las últimas novedades"></ProductoCard>
+      <ProductoCard title="Contacto" content="¡Síguenos en nuestras redes sociales para no perderte de las últimas novedades"></ProductoCard>
+      <ProductoCard title="Contacto" content="¡Síguenos en nuestras redes sociales para no perderte de las últimas novedades"></ProductoCard>
+      <ProductoCard title="Contacto" content="¡Síguenos en nuestras redes sociales para no perderte de las últimas novedades"></ProductoCard>
+      <ProductoCard title="Contacto" content="¡Síguenos en nuestras redes sociales para no perderte de las últimas novedades"></ProductoCard>
+      <ProductoCard title="Contacto" content="¡Síguenos en nuestras redes sociales para no perderte de las últimas novedades"></ProductoCard>
     </div>
   </template>
   
