@@ -1,9 +1,13 @@
 <template>
-<!--Contenedor principal-->
-<h1>Portada</h1>
+<!---->
+<CarouselCard></CarouselCard>
 </template>
 <script>
+import CarouselCard from './CarouselCard.vue';
 export default {
-    name: 'PortadaCard'
+    name: 'PortadaCard',
+    components: {
+      CarouselCard
+    }
 };
   </script>

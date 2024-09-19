@@ -8,11 +8,12 @@
 export default{
     name: 'LogoCard'
 }
+
 </script>
 
 <style scoped>
 .logo {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #000000;
 }
 
