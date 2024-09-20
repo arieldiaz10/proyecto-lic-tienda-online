@@ -1,16 +1,14 @@
+<!--
+  Vista "Acerca de"
+-->
 <template>
-  <HeaderCard></HeaderCard>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div>
+    <h1>Página "Acerca de"</h1>
   </div>
 </template>
 
 <script>
-import '../components/HeaderCard.vue'
 export default {
-  name: 'AboutView',
-  components: {
-
-  }
+  name: 'AboutView'
 }
 </script>

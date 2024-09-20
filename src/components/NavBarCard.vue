@@ -1,4 +1,9 @@
+<!--
+  IMPORTANTE:
+  Este componente define la navegación (entre Vistas) dentro de la página web
+-->
 <template>
+  <!--Contenedor principal del menú de navegación principal-->
   <nav class="navbar navbar-expand-lg m-0 p-0">
     <div class="container-fluid p-2">
       <!--Logo-->
@@ -7,13 +12,13 @@
       </router-link>
 
       <!--Botón para desplegar menú en pantallas pequeñas-->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" data-bs-intervall="5000"
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
         aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <!--Contenedor de los botones (opciones) del menú de navegación-->
       <div class="collapse navbar-collapse" id="mainNavbar">
+        <!--Contenedor de los botones (opciones) del menú de navegación-->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <!--Link a la vista (página) "Productos"-->
           <li class="nav-item">
@@ -21,7 +26,7 @@
           </li>
           <!--Link a la vista (página) "Categorías"-->
           <li class="nav-item">
-            <router-link class="nav-link" to="/">Categorías</router-link>
+            <router-link class="nav-link" to="/categorias">Categorías</router-link>
           </li>
           <!--Link a la vista (página) "Acerca de"-->
           <li class="nav-item">
@@ -29,11 +34,11 @@
           </li>
           <!--Link a la vista (página) "Preguntas Frecuentas"-->
           <li class="nav-item">
-            <router-link class="nav-link" to="/">FAQs</router-link>
+            <router-link class="nav-link" to="/preguntasfrecuentes">FAQs</router-link>
           </li>
           <!--Link a la vista (página) "Carrito de compras"-->
           <li class="nav-item">
-            <router-link class="nav-link" to="/">
+            <router-link class="nav-link" to="/carrito">
               <i class="bi bi-cart"></i> <!--Ícono del carrito de compras-->
             </router-link>
           </li>
@@ -50,12 +55,6 @@
 
     </div> <!--Fin del div-container-fluid-->
   </nav>
-
-
-
-
-  <!--Fin del navbar de Bootstrap-->
-
 </template>
 
 <script>

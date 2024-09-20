@@ -1,7 +1,7 @@
 <template>
-  <!--Menú de navegación principal-->
+  <!--Menú de navegación principal (Componente que contiene el enrutamiento)-->
   <NavBarCard></NavBarCard>
-  <!--Etiqueta para el enrutador-->
+  <!--Etiqueta para habilitar el enrumiento-->
   <router-view />
 </template>
 

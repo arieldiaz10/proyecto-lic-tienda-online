@@ -1,24 +1,37 @@
 import { createRouter, createWebHistory } from 'vue-router'
-//Importando vistas
-import Home from '../views/HomeView.vue'
-import Productos from '../views/ProductosView.vue'
+
 
 /*Se definen las rutas de las vistas para la navegación del sitio web*/
 const routes = [
   {
-    path: '/',
+    path: '/', //Ruta por defecto: la página principal que se muestra en el navegador al cargar el sitio web
     name: 'home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'about',
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: () => import('../views/HomeView.vue')
   },
   {
     path: '/productos',
     name: 'productos',
-    component: Productos
+    component: () => import('../views/ProductosView.vue')
+  },
+  {
+    path: '/categorias',
+    name: 'categorias',
+    component: () => import('../views/CategoriasView.vue')
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: () => import('../views/AboutView.vue')
+  },
+  {
+    path: '/preguntasfrecuentes',
+    name: 'preguntasfrecuentes',
+    component: () => import('../views/FAQsView.vue')
+  },
+  {
+    path: '/carrito',
+    name: 'carrito',
+    component: () => import('../views/CarritoView.vue')
   }
 ]
 
