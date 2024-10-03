@@ -1,6 +1,6 @@
 <template>
   <!--Elemento contenedor de todos los elementos del carrusel: indicadores, imagenes y botones-->
-  <div id="carruselPortada" class="carousel slide mt-2" data-bs-ride="carousel">
+  <div id="carruselPortada" class="carousel slide" data-bs-ride="carousel">
     <!--Lineas horizontales que sirven al pie de la imagen del carrusel-->
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carruselPortada" data-bs-slide-to="0" class="active" aria-current="true"

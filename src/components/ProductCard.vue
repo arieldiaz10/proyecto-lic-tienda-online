@@ -3,13 +3,12 @@
   <div class="card mb-4" style="width: 18rem;">
     <img :src="image" class="card-img-top" alt="Imagen del producto">
     <div class="card-body">
-      <h5 class="card-title">{{ name }}</h5>
-      <p class="card-text">{{ description }}</p>
+      <h5 class="card-title">{{ nombre }}</h5>
+      <p class="card-text">{{ descripcion }}</p>
       <div class="d-flex justify-content-between align-items-center">
-        <span class="text-success fw-bold">{{ formatPrice(price) }}</span>
+        <span class="text-success fw-bold">{{ precio }}</span>
         <button class="btn btn-primary">Agregar a carrito </button>
       </div>
-      
     </div>
   </div>
 </template>
@@ -22,16 +21,16 @@ export default {
       type: String,
       required: true
     },
-    name: {
+    nombre: {
       type: String,
       required: true
     },
-    description: {
+    descripcion: {
       type: String,
       required: true
     },
-    price:{
-      type:Number,
+    precio:{
+      type:String,
       Required: true
     },
     color:{
@@ -91,4 +90,3 @@ export default {
 
 
   </style>
-  

@@ -1,24 +1,23 @@
 <!--
   Vista de "Productos"
 -->
-
 <template>
   <div class="container mt-4">
     <h1 class="mb-4">Productos disponibles</h1>
     <div class="row">
       <!-- Recorrer la lista de productos y mostrar cada uno en una tarjeta -->
-      <div class="col-md-4" v-for="product in products" :key="product.id">
+      <div class="col-md-4" v-for="producto in productos" :key="producto.id">
         <ProductCard
-          :image="product.image"
-          :name="product.name"
-          :description="product.description"
-          :price="product.price"
+          :image="require('../assets/products/product1.jpg')" 
+          :nombre="producto.nombre"
+          :descripcion="producto.descripcion"
+          :precio="producto.precio"
         />
-
       </div>
     </div>
   </div>
 </template>
+
 
 <script>
 import ProductCard from '../components/ProductCard.vue';
@@ -30,21 +29,29 @@ export default {
   },
   data() {
     return {
-      products: [
-        {
-          id: 1,
-          image: require('../assets/products/product1.jpg'),
-          name: 'Suero Facial',
-          description: 'Serum que ayuda a la disminucion de expresiones en la piel',
-          price: 19.99
-        },
-       
-      ]
+      productos: [] //Arreglo que almacenará la información de los empleados proveniente de la base de datos
     };
+  },
+  created: function() {
+    //Función que carga los productos existentes
+    this.consultarProductos();
+  },
+  methods: {
+    //Método que consulta a la base de datos los productos existentes
+    consultarProductos() {
+      fetch('https://total-market.onrender.com/productos')
+      .then(respuesta => respuesta.json())
+      .then((productosRespuesta) => {
+        console.log(productosRespuesta);
+        
+        //Si se han obtenido productos en la petición a la base de datos
+        if(productosRespuesta.length > 0) {
+          this.productos = productosRespuesta; //Agregar productos que se recibieron al arreglo productos
+        }   
+      })
+      .catch(console.log)
+    }
   }
 };
 </script>
 
-<style scoped>
-/* Estilo adicional para el contenedor de productos */
-</style>
