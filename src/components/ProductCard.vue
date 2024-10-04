@@ -7,7 +7,7 @@
       <p class="card-text">{{ descripcion }}</p>
       <div class="d-flex justify-content-between align-items-center">
         <span class="text-success fw-bold">${{ precio }}</span>
-        <button class="btn btn-primary">Agregar a carrito </button>
+        <button class="btn btn-primary">Agregar <i class="fa-solid fa-cart-shopping"></i> </button>
       </div>
     </div>
   </div>
