@@ -6,7 +6,7 @@
       <h5 class="card-title">{{ nombre }}</h5>
       <p class="card-text">{{ descripcion }}</p>
       <div class="d-flex justify-content-between align-items-center">
-        <span class="text-success fw-bold">{{ precio }}</span>
+        <span class="text-success fw-bold">${{ precio }}</span>
         <button class="btn btn-primary">Agregar a carrito </button>
       </div>
     </div>

@@ -8,7 +8,7 @@
     <div class="container-fluid p-2">
       <!--Logo-->
       <router-link class="navbar-brand" to="/">
-        <LogoCard></LogoCard>
+        <LogoCard fontColor="white"></LogoCard>
       </router-link>
 
       <!--Botón para desplegar menú en pantallas pequeñas-->
@@ -48,7 +48,7 @@
         <div class="nav-item d-none d-sm-block">
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Busca un producto" aria-label="Search">
-            <button class="btn btn-success" type="submit"><i class="bi bi-search"></i></button>
+            <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
           </form>
         </div>
       </div>
@@ -69,11 +69,16 @@ export default {
 
 <style scoped>
 .container-fluid {
-  background-color: #f5f5f5;
+  background-color: #23345E;
 }
 
 .nav-link {
-  color: black;
+  color: #f5f5f5;
+  font-weight: 400;
+  font-size: 1.1rem;
+
 }
+
+
 
 </style>

@@ -1,12 +1,18 @@
 <template>
-    <div class="logo">
+    <div class="logo" :style="{color: fontColor}">
         <span>TotalMarket</span> <i class="bi bi-bag-heart-fill"></i>
     </div>
 </template>
 
 <script>
 export default{
-    name: 'LogoCard'
+    name: 'LogoCard',
+    props: {
+      fontColor: {
+        type: String,
+        default: '#00000'
+      }
+    }
 }
 
 </script>
