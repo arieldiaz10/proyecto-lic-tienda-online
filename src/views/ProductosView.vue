@@ -9,9 +9,7 @@
       <div class="col-md-4" v-for="producto in productos" :key="producto.id">
         <ProductCard
           :image="require('../assets/products/product1.jpg')" 
-          :nombre="producto.nombre"
-          :descripcion="producto.descripcion"
-          :precio="producto.precio"
+          :producto = "producto"
         />
       </div>
     </div>
@@ -20,17 +18,23 @@
 
 
 <script>
+import { useCarritoStore } from '@/stores/carrito';
 import ProductCard from '../components/ProductCard.vue';
+
 
 export default {
   name: 'ProductosView',
   components: {
-    ProductCard
+    ProductCard,
   },
   data() {
     return {
-      productos: [] //Arreglo que almacenará la información de los empleados proveniente de la base de datos
+      productos: [], //Arreglo que almacenará la información de los empleados proveniente de la base de datos,
     };
+  },
+  setup(){
+    const carritoStore = useCarritoStore();
+    return { carritoStore };
   },
   created: function() {
     //Función que carga los productos existentes

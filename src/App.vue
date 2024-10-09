@@ -5,7 +5,7 @@
   <transition name="fade" mode="out-in">
     <router-view /> <!--Etiqueta para habilitar el enrutamiento-->
   </transition>
-  
+
 </template>
 
 <script>
