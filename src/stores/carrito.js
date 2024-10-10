@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia';
 
+
 export const useCarritoStore = defineStore('carrito', {
     state: () => ({
         productosEnCarrito: [] //Arreglo que almacena los productos que se agregan en el carrito

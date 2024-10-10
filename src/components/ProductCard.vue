@@ -15,9 +15,10 @@
 
 <script>
 import { useCarritoStore } from '@/stores/carrito';
+
 export default {
   name: 'ProductCard',
-  props: {
+    props: {
     image: {
       type: String,
       required: true
@@ -39,8 +40,6 @@ export default {
   setup(props){
     const carritoStore = useCarritoStore();
     const agregarAlCarrito = () => {
-      console.log(props.producto);
-      console.log(carritoStore.totalProductos);
       carritoStore.agregarProductoCarrito(props.producto);
     };
 
