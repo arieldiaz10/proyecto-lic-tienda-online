@@ -1,16 +1,20 @@
 <!-- src/components/ProductCard.vue -->
 <template>
-  <div class="card mb-4" style="width: 18rem;">
+  
+  <div class="card mb-4 product-card" style="width: 18rem;">
+    <div class="image-wrapper">
     <img :src="image" class="card-img-top" alt="Imagen del producto">
+    </div>
     <div class="card-body">
       <h5 class="card-title">{{ nombre }}</h5>
       <p class="card-text">{{ descripcion }}</p>
       <div class="d-flex justify-content-between align-items-center">
         <span class="text-success fw-bold">${{ precio }}</span>
-        <button class="btn btn-primary">Agregar <i class="fa-solid fa-cart-shopping"></i> </button>
+        <button class="btn btn-primary">Agregar  a <i class="fa-solid fa-cart-shopping"></i> </button>
       </div>
     </div>
   </div>
+  
 </template>
 
 <script>
@@ -40,11 +44,12 @@ export default {
 
   },
 
-  data() {
+ data() {
     return {
       hover: false // Variable para controlar el estado hover
     };
   },
+  
   computed: {
     cardColor() {
       return this.hover ? 'bg-warning' : this.color; // Cambiar el color cuando el mouse está encima
@@ -61,32 +66,37 @@ export default {
 </script>
   
   <style scoped>
+
   .product-card {
+    overflow: hidden;
     border: 1px solid #106cc8df;
     border-radius: 8px;
     padding: 16px;
-    width: 300px;
     text-align: center;
-  }
-  .product-image {
-    width: 90%;
-    height: auto;
-    border-radius: 4px;
+    transition: transform 0.3s ease; /* ease-in-outox-shadow 0.3s ease;*/
   }
 
-  .default-card {
-  background-color: rgb(144, 177, 218); /* Fondo gris claro */
-  transition: background-color 0.3s ease; /* Transición suave */
-}
-
-.hover-card {
-  background-color: rgb(115, 147, 221); /* Fondo gris oscuro al pasar el mouse */
+  .image-wrapper {
+  background-color: #acd5ffdf; /* Fondo azul */
+  border: 1px solid #106cc8df;     /* Borde rojo */
+  padding: 10px;             /* Espaciado interno para que la imagen no esté pegada al borde */
+  border-radius: 5px;        /* Esquinas redondeadas */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card-img-top {
   height: 200px; /* Ajustar la altura de la imagen */
   object-fit: cover;
+  transition: transform 0.3s ease; /* Transición suave para la imagen */
 }
+
+/* Al pasar el mouse sobre la tarjeta, la imagen se agranda */
+.product-card:hover .card-img-top {
+  transform: scale(1.2); /* Escala la imagen al 120% */
+}
+
 
 
   </style>
