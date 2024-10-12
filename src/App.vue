@@ -1,8 +1,11 @@
 <template>
   <!--Menú de navegación principal (Componente que contiene el enrutamiento)-->
   <NavBarCard></NavBarCard>
-  <!--Etiqueta para habilitar el enrumiento-->
-  <router-view />
+  
+  <transition name="fade" mode="out-in">
+    <router-view /> <!--Etiqueta para habilitar el enrutamiento-->
+  </transition>
+
 </template>
 
 <script>
@@ -15,3 +18,11 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.fade-enter-to, .fade-leave-to {
+  opacity: 0;
+  transform: translateX(2em);
+  transition: all .3s ease;
+}
+</style>

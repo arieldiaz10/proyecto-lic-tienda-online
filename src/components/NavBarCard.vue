@@ -39,7 +39,7 @@
           <!--Link a la vista (página) "Carrito de compras"-->
           <li class="nav-item">
             <router-link class="nav-link" to="/carrito">
-              <i class="bi bi-cart"></i> <!--Ícono del carrito de compras-->
+              <i class="bi bi-cart"></i> <span> {{ totalProductos }}</span>
             </router-link>
           </li>
         </ul>
@@ -58,13 +58,25 @@
 </template>
 
 <script>
+import { useCarritoStore } from '@/stores/carrito';
 import LogoCard from './LogoCard.vue';
+import { computed } from 'vue';
+
 export default {
   name: 'NavBarCard',
   components: {
     LogoCard
+  },
+  setup(){
+    const carritoStore = useCarritoStore();
+
+    const totalProductos = computed(() => carritoStore.totalProductos);
+
+    return { 
+      totalProductos
+     };
   }
-};
+}
 </script>
 
 <style scoped>
@@ -78,7 +90,4 @@ export default {
   font-size: 1.1rem;
 
 }
-
-
-
 </style>

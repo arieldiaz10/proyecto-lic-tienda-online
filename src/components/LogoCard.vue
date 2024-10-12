@@ -20,7 +20,6 @@ export default{
 <style scoped>
 .logo {
   font-size: 1.5rem;
-  color: #000000;
 }
 
 .logo span {

@@ -6,11 +6,11 @@
     <img :src="image" class="card-img-top" alt="Imagen del producto">
     </div>
     <div class="card-body">
-      <h5 class="card-title">{{ nombre }}</h5>
-      <p class="card-text">{{ descripcion }}</p>
+      <h5 class="card-title">{{ producto.nombre }}</h5>
+      <p class="card-text">{{ producto.descripcion }}</p>
       <div class="d-flex justify-content-between align-items-center">
-        <span class="text-success fw-bold">${{ precio }}</span>
-        <button class="btn btn-primary">Agregar  a <i class="fa-solid fa-cart-shopping"></i> </button>
+        <span class="text-success fw-bold">${{ producto.precio }}</span>
+        <button class="btn btn-primary" @click="agregarAlCarrito">Agregar a <i class="fa-solid fa-cart-shopping"></i> </button>
       </div>
     </div>
   </div>
@@ -18,50 +18,58 @@
 </template>
 
 <script>
+import { useCarritoStore } from '@/stores/carrito';
+
 export default {
   name: 'ProductCard',
-  props: {
+    props: {
     image: {
       type: String,
       required: true
     },
-    nombre: {
-      type: String,
-      required: true
-    },
-    descripcion: {
-      type: String,
-      required: true
-    },
-    precio:{
-      type:String,
-      Required: true
-    },
     color:{
       type:String,
       default: 'bg-light' //Color de fondo por defecto
+    },
+    producto: {
+      type: Object, //Objeto que contiene toda la información de cada producto
+      required: true 
     }
-
   },
 
- data() {
+  data() {
     return {
-      hover: false // Variable para controlar el estado hover
+      hover: false, // Variable para controlar el estado hover,
     };
+  },
+  setup(props){
+    const carritoStore = useCarritoStore();
+    const agregarAlCarrito = () => {
+      carritoStore.agregarProductoCarrito(props.producto);
+    };
+
+    return {
+      agregarAlCarrito
+    };
+    
+  },
+  setup(props){
+    const carritoStore = useCarritoStore();
+    const agregarAlCarrito = () => {
+      carritoStore.agregarProductoCarrito(props.producto);
+    };
+
+    return {
+      agregarAlCarrito
+    };
+    
   },
   
   computed: {
     cardColor() {
       return this.hover ? 'bg-warning' : this.color; // Cambiar el color cuando el mouse está encima
     }
-  },
-
-  methods: {
-    // Método para formatear el precio con un símbolo de moneda
-    formatPrice(value) {
-      return `$${value.toFixed(2)}`;
-    }
-}
+  }
 };
 </script>
   
