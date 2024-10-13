@@ -5,15 +5,21 @@
 <template>
     <!--Componente que contiene el carrusel de imagenes-->
     <CarouselCard></CarouselCard>
+
+    <!--Componente que contiene el carrusel de testimonios-->
+    <TestimoniosCard></TestimoniosCard>
 </template>
 
 <script>
 import CarouselCard from '../components/CarouselCard.vue';
+import TestimoniosCard from '../components/TestimoniosCard.vue';
 
 export default {
     name: 'HomeView.vue',
     components: {
-        CarouselCard
+        CarouselCard, 
+        TestimoniosCard
     }
 }
 </script>
+

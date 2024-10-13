@@ -15,7 +15,7 @@
           <div class="card-body">
             <h5 class="card-tittle">{{ item.nombre }}</h5>
             <p class="card-text">Cantidad: {{ item.cantidad }}</p>
-            <p class="card-text"><small class="text-muted">Precio: {{ item.precio }}</small></p>
+            <p class="card-text"><small class="text-muted">Precio: ${{ item.precio }}</small></p>
             <button class="btn btn-danger btn-sm"><i class="bi bi-trash-fill"></i></button>
           </div>
         </div>

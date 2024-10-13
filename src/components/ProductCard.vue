@@ -48,9 +48,8 @@ export default {
   // Notificación Toast
   const mostrarNotificacion = () => {
     toast.success('¡Producto agregado con éxito!', {
-      position: 'top-center',
+      position: 'bottom-center',
       autoClose: 1000,
-      className: 'custom-toast'
     });
   };
 
@@ -75,19 +74,16 @@ export default {
 </script>
   
   <style scoped>
-
   .product-card {
     overflow: hidden;
     border: 1px solid #106cc8df;
-    border-radius: 8px;
+    border-radius: 20px;
     padding: 16px;
     text-align: center;
     transition: transform 0.3s ease; /* ease-in-outox-shadow 0.3s ease;*/
   }
 
   .image-wrapper {
-  background-color: #acd5ffdf; /* Fondo azul */
-  border: 1px solid #106cc8df;     /* Borde rojo */
   padding: 10px;             /* Espaciado interno para que la imagen no esté pegada al borde */
   border-radius: 5px;        /* Esquinas redondeadas */
   display: flex;
