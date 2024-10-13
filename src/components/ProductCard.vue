@@ -1,5 +1,6 @@
 <!-- src/components/ProductCard.vue -->
 <template>
+  
   <div class="card mb-4 product-card" style="width: 18rem;">
     <div class="image-wrapper">
     <img :src="image" class="card-img-top" alt="Imagen del producto">
@@ -9,10 +10,11 @@
       <p class="card-text">{{ producto.descripcion }}</p>
       <div class="d-flex justify-content-between align-items-center">
         <span class="text-success fw-bold">${{ producto.precio }}</span>
-        <button class="btn btn-primary" @click="agregarAlCarrito"><i class="fa-solid fa-cart-shopping"></i> </button>
+        <button class="btn btn-primary" @click="agregarAlCarrito">Agregar a <i class="fa-solid fa-cart-shopping"></i> </button>
       </div>
     </div>
   </div>
+  
 </template>
 
 <script>
@@ -36,6 +38,7 @@ export default {
       required: true 
     }
   },
+
   data() {
     return {
       hover: false, // Variable para controlar el estado hover,
@@ -58,11 +61,23 @@ export default {
     mostrarNotificacion();
   };
 
-  return {
-    mostrarNotificacion,
-    agregarAlCarrito,
-  };
-},
+    return {
+      agregarAlCarrito
+    };
+    
+  },
+  setup(props){
+    const carritoStore = useCarritoStore();
+    const agregarAlCarrito = () => {
+      carritoStore.agregarProductoCarrito(props.producto);
+    };
+
+    return {
+      agregarAlCarrito
+    };
+    
+  },
+  
   computed: {
     cardColor() {
       return this.hover ? 'bg-warning' : this.color; // Cambiar el color cuando el mouse está encima
@@ -72,35 +87,8 @@ export default {
 </script>
   
   <style scoped>
-  /*
+
   .product-card {
-    border: 1px solid #106cc8df;
-    border-radius: 8px;
-    padding: 16px;
-    width: 300px;
-    text-align: center;
-  }
-  .product-image {
-    width: 90%;
-    height: auto;
-    border-radius: 4px;
-  }
-
-  .default-card {
-  background-color: rgb(144, 177, 218); 
-}
-
-.hover-card {
-  background-color: rgb(115, 147, 221);
-}
-
-.card-img-top {
-  height: 200px; 
-  object-fit: cover;
-}
- }*/
-
- .product-card {
     overflow: hidden;
     border: 1px solid #106cc8df;
     border-radius: 8px;
@@ -129,4 +117,7 @@ export default {
 .product-card:hover .card-img-top {
   transform: scale(1.2); /* Escala la imagen al 120% */
 }
-</style>
+
+
+
+  </style>

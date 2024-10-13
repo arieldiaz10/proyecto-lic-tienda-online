@@ -2,11 +2,17 @@
   Vista de "Productos"
 -->
 <template>
+
   <div class="container mt-4">
-    <h1 class="mb-4">Productos disponibles</h1>
+    <div class="franja-bienvenida text-center">
+      <h1>Bienvenidos a Productos</h1>
+      <h2>Donde encontraras todo lo que buscas a mejor precio</h2>
+    </div>
+
+    <!--<h1 class="mb-4">Productos disponibles</h1>-->
     <div class="row">
       <!-- Recorrer la lista de productos y mostrar cada uno en una tarjeta -->
-      <div class="col-md-4" v-for="producto in productos" :key="producto.id">
+      <div class="col-12 col-sm-6 col-md-3 mb-4" v-for="producto in productos" :key="producto.id">
         <ProductCard
           :image="require('../assets/products/product1.jpg')" 
           :producto = "producto"
@@ -59,3 +65,25 @@ export default {
 };
 </script>
 
+
+<style scoped>
+.franja-bienvenida {
+  background: linear-gradient(135deg, #f0f8ff, #103356); /* Degradado diagonal */
+  padding: 10px 0; /* Espaciado vertical */
+  border-bottom: 2px solid #106cc8;
+  border-radius: 15px; /* Redondea las esquinas */
+  margin-bottom: 20px; /* Separación debajo de la franja */
+}
+
+.franja-bienvenida h1 {
+  color: #ffffff; /* Color del texto */
+  font-size: 25px; /* Tamaño de fuente */
+  margin: 0;
+}
+
+.franja-bienvenida h2{
+  font-size: 20px;
+  margin: 0;
+}
+
+</style>
