@@ -1,7 +1,9 @@
 <!-- src/components/ProductCard.vue -->
 <template>
-  <div class="card mb-4" style="width: 18rem;">
+  <div class="card mb-4 product-card" style="width: 18rem;">
+    <div class="image-wrapper">
     <img :src="image" class="card-img-top" alt="Imagen del producto">
+    </div>
     <div class="card-body">
       <h5 class="card-title">{{ producto.nombre }}</h5>
       <p class="card-text">{{ producto.descripcion }}</p>
@@ -15,6 +17,8 @@
 
 <script>
 import { useCarritoStore } from '@/stores/carrito';
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
 
 export default {
   name: 'ProductCard',
@@ -37,17 +41,28 @@ export default {
       hover: false, // Variable para controlar el estado hover,
     };
   },
-  setup(props){
-    const carritoStore = useCarritoStore();
-    const agregarAlCarrito = () => {
-      carritoStore.agregarProductoCarrito(props.producto);
-    };
+  setup(props) {
+  // Notificación Toast
+  const mostrarNotificacion = () => {
+    toast.success('¡Producto agregado con éxito!', {
+      position: 'top-center',
+      autoClose: 1000,
+      className: 'custom-toast'
+    });
+  };
 
-    return {
-      agregarAlCarrito
-    };
-    
-  },
+  // Carrito de compras
+  const carritoStore = useCarritoStore();
+  const agregarAlCarrito = () => {
+    carritoStore.agregarProductoCarrito(props.producto);
+    mostrarNotificacion();
+  };
+
+  return {
+    mostrarNotificacion,
+    agregarAlCarrito,
+  };
+},
   computed: {
     cardColor() {
       return this.hover ? 'bg-warning' : this.color; // Cambiar el color cuando el mouse está encima
@@ -57,6 +72,7 @@ export default {
 </script>
   
   <style scoped>
+  /*
   .product-card {
     border: 1px solid #106cc8df;
     border-radius: 8px;
@@ -71,16 +87,46 @@ export default {
   }
 
   .default-card {
-  background-color: rgb(144, 177, 218); /* Fondo gris claro */
-  transition: background-color 0.3s ease; /* Transición suave */
+  background-color: rgb(144, 177, 218); 
 }
 
 .hover-card {
-  background-color: rgb(115, 147, 221); /* Fondo gris oscuro al pasar el mouse */
+  background-color: rgb(115, 147, 221);
+}
+
+.card-img-top {
+  height: 200px; 
+  object-fit: cover;
+}
+ }*/
+
+ .product-card {
+    overflow: hidden;
+    border: 1px solid #106cc8df;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    transition: transform 0.3s ease; /* ease-in-outox-shadow 0.3s ease;*/
+  }
+
+  .image-wrapper {
+  background-color: #acd5ffdf; /* Fondo azul */
+  border: 1px solid #106cc8df;     /* Borde rojo */
+  padding: 10px;             /* Espaciado interno para que la imagen no esté pegada al borde */
+  border-radius: 5px;        /* Esquinas redondeadas */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card-img-top {
   height: 200px; /* Ajustar la altura de la imagen */
   object-fit: cover;
+  transition: transform 0.3s ease; /* Transición suave para la imagen */
+}
+
+/* Al pasar el mouse sobre la tarjeta, la imagen se agranda */
+.product-card:hover .card-img-top {
+  transform: scale(1.2); /* Escala la imagen al 120% */
 }
 </style>

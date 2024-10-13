@@ -23,7 +23,7 @@
     </div>
 
     <div class="card mt-3 p-3">
-      <h4>Total: {{ totalCosto }}</h4>
+      <h4>Total: {{ formatPrice(totalCosto) }}</h4>
       <button class="btn btn-success btn-lg w-100">Realizar pago <i class="bi bi-currency-dollar"></i></button>
     </div>
   </div>
@@ -47,6 +47,12 @@ export default {
       totalCosto: carritoStore.totalCosto, // Precio total
     };
   },
+  methods: {
+    // Método para formatear el precio con un símbolo de moneda
+    formatPrice(value) {
+      return `$${value.toFixed(2)}`;
+    }
+}
 };
 </script>
 
