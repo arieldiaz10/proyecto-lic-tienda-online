@@ -65,19 +65,7 @@ export default {
       agregarAlCarrito
     };
     
-  },
-  setup(props){
-    const carritoStore = useCarritoStore();
-    const agregarAlCarrito = () => {
-      carritoStore.agregarProductoCarrito(props.producto);
-    };
-
-    return {
-      agregarAlCarrito
-    };
-    
-  },
-  
+  },  
   computed: {
     cardColor() {
       return this.hover ? 'bg-warning' : this.color; // Cambiar el color cuando el mouse está encima
@@ -117,7 +105,4 @@ export default {
 .product-card:hover .card-img-top {
   transform: scale(1.2); /* Escala la imagen al 120% */
 }
-
-
-
-  </style>
+</style>
