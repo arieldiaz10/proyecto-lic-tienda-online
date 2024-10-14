@@ -3,7 +3,7 @@
   
   <div class="card mb-4 product-card" style="width: 18rem;">
     <div class="image-wrapper">
-    <img :src="image" class="card-img-top" alt="Imagen del producto">
+    <img :src="getImagePath(imagePath)" class="card-img-top" alt="Imagen del producto">
     </div>
     <div class="card-body">
       <h5 class="card-title">{{ producto.nombre }}</h5>
@@ -25,20 +25,30 @@ import 'vue3-toastify/dist/index.css';
 export default {
   name: 'ProductCard',
     props: {
-    image: {
+    imagePath: { //Ruta a la imagen del producto
       type: String,
       required: true
-    },
-    color:{
-      type:String,
-      default: 'bg-light' //Color de fondo por defecto
     },
     producto: {
       type: Object, //Objeto que contiene toda la información de cada producto
       required: true 
+    },
+    color:{
+      type:String,
+      default: 'bg-light' //Color de fondo por defecto
     }
   },
-
+  methods: {
+    //Función que obtiene la ruta correcta de la imagen
+    getImagePath(imagen_path) {
+      try{
+        return require(`@/assets/products/${imagen_path}`);
+      } catch(e) {
+        //Si se genera un error y no se encuentra la imagen, se muestra una por defecto
+        return require(`@/assets/products/product1.jpg`);
+      }
+    }
+  },
   data() {
     return {
       hover: false, // Variable para controlar el estado hover,

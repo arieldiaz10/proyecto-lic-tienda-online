@@ -13,7 +13,7 @@
       <!-- Recorrer la lista de productos y mostrar cada uno en una tarjeta -->
       <div class="col-12 col-sm-6 col-md-3 mb-4" v-for="producto in productos" :key="producto.id">
         <ProductCard
-          :image="require('../assets/products/product1.jpg')" 
+          :imagePath="producto.imagen_path" 
           :producto = "producto"
         />
       </div>
@@ -51,7 +51,7 @@ export default {
       fetch('https://total-market.onrender.com/productos')
       .then(respuesta => respuesta.json())
       .then((productosRespuesta) => {
-        console.log(productosRespuesta);
+        console.log(productosRespuesta[productosRespuesta.length -1].imagen_path);
         
         //Si se han obtenido productos en la petición a la base de datos
         if(productosRespuesta.length > 0) {
