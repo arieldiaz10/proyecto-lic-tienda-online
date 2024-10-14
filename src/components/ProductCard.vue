@@ -86,7 +86,7 @@ export default {
   <style scoped>
   .product-card {
     overflow: hidden;
-    border: 1px solid #106cc8df;
+    border: 2px solid #106cc8df;
     border-radius: 20px;
     padding: 16px;
     text-align: center;

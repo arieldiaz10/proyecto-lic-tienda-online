@@ -11,7 +11,7 @@
 
     <div class="row">
       <!-- Recorrer la lista de productos y mostrar cada uno en una tarjeta -->
-      <div class="col-12 col-sm-6 col-md-3 mb-4" v-for="producto in productos" :key="producto.id">
+      <div class="product-container col-12 col-sm-6 col-md-3 mb-4" v-for="producto in productos" :key="producto.id">
         <ProductCard
           :imagePath="producto.imagen_path" 
           :producto = "producto"
@@ -89,4 +89,10 @@ export default {
   font-size: 1.3rem;
 }
 
+@media (max-width: 768px) {
+  .product-container {
+    display: flex;
+    justify-content: center;
+  }
+}
 </style>
