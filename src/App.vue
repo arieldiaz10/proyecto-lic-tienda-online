@@ -1,26 +1,30 @@
 <template>
-  <!--Sección del header-->
-  <HeaderCard></HeaderCard>
-  <!--Sección nav de la parte-->
-  <NavBarCard></NavBarCard>
-  <!--Sección para el carrusel-->
-  <CarouselCard></CarouselCard>
-  <!--Etiqueta para el enrutador-->
-  
-  <router-view />
+    <!--Menú de navegación principal (Componente que contiene el enrutamiento)-->
+    <NavBarCard></NavBarCard>
+
+    <transition name="fade" mode="out-in">
+      <router-view /> <!--Etiqueta para habilitar el enrutamiento-->
+    </transition>
 </template>
 
 <script>
 import NavBarCard from './components/NavBarCard.vue'
-import HeaderCard from './components/HeaderCard.vue'
-import CarouselCard from './components/CarouselCard.vue'
 
 export default {
   name: 'App',
   components: {
-    NavBarCard,
-    HeaderCard,
-    CarouselCard
+    NavBarCard
   }
 }
 </script>
+<style scoped>
+
+.fade-enter-to, .fade-leave-to {
+  opacity: 0;
+  transform: translateX(2em);
+  transition: all .3s ease;
+}
+template{
+  background-color: #D8DFEC;
+}
+</style>
