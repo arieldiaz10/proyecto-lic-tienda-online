@@ -4,18 +4,18 @@
 
     <div v-if="productosEnCarrito.length">
       <transition-group name="fade" tag="div" class="cart-items">
-        <div v-for="item in productosEnCarrito" :key="item.id" class="card mb-3 shadow-sm animate__animated">
-          <div class="row g-0">
+        <div v-for="item in productosEnCarrito" :key="item.id" class="card mb-3 shadow-sm">
+          <div class="row g-0 producto-contenedor">
             <div class="img-container col-12 col-md-4">
               <img :src="getImagePath(item.imagen_path)" class="img-fluid producto-imagen" alt="Imagen de producto">
             </div>
             <div class="col-12 col-md-8">
               <div class="card-body">
                 <h5 class="card-title">{{ item.nombre }}</h5>
-                <p class="card-text">Cantidad: {{ item.cantidad }}</p>
-                <p class="card-text"><small class="text-muted">Precio: ${{ item.precio }}</small></p>
-                <button class="btn btn-danger btn-sm btn-eliminar" @click="eliminarProducto(item.id)">
-                  <i class="bi bi-trash-fill"></i> Eliminar
+                <p class="card-text"><span>Cantidad:</span> {{ item.cantidad }}</p>
+                <p class="card-text"><span>Precio:</span> ${{ item.precio }}</p>
+                <button class="btn btn-danger btn-md btn-eliminar" @click="eliminarProducto(item.id)">
+                  <i class="fa-solid fa-trash"></i> Eliminar 
                 </button>
               </div>
             </div>
@@ -30,7 +30,7 @@
 
     <div v-else>
       <div class="alert alert-warning d-flex align-items-center" role="alert">
-        Aún no has agregado ningún producto al carrito 
+        Aún no has agregado ningún producto al carrito
       </div>
     </div>
   </div>
@@ -65,32 +65,54 @@ export default {
         return require(`@/assets/products/product1.jpg`);
       }
     },
-    
+
   }
 };
 </script>
 
 <style scoped>
 /* Clases de animación para la transición */
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.3s ease, transform 0.3s ease; /* Tiempo reducido para más fluidez */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  /* Tiempo reducido para más fluidez */
 }
 
 .fade-enter {
   opacity: 0;
-  transform: scale(1.05); /* Comienza un poco más grande */
+  transform: scale(1.05);
+  /* Comienza un poco más grande */
 }
 
-.fade-leave-to { 
+.fade-leave-to {
   opacity: 0;
-  transform: scale(1.05); /* Termina un poco más grande */
+  transform: scale(1.05);
+  /* Termina un poco más grande */
 }
 
+/*Titulo de la página*/
+h2 {
+  font-family: 'Hind Madurai';
+  font-size: 2.5rem;
+  font-weight: 600;
+}
 
 /* Estilos de las tarjetas */
+.producto-contenedor {
+  border: 3px solid #f5f5f5;
+  border-radius: 10px;
+}
+
 .card {
   border: none;
   border-radius: 10px;
+}
+
+.card-title {
+  font-size: 1.6rem;
+  font-family: 'Hind Madurai';
+  font-weight: 600;
+  color: #242424;
 }
 
 .card-body {
@@ -99,34 +121,95 @@ export default {
   justify-content: center;
 }
 
+.card-text {
+  font-family: 'Nunito';
+  color: #494949;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.card-text span {
+  color: #106cc8df;
+}
+
+
 .producto-imagen {
   width: 200px;
   height: 200px;
-  object-fit: cover; /* Asegura que la imagen se ajuste al contenedor sin deformarse */
+  object-fit: cover;
+  /* Asegura que la imagen se ajuste al contenedor sin deformarse */
   border-radius: 10px;
+}
+
+.card h4 {
+  color: #353535;
+  font-family: 'Nunito';
+  font-weight: 700;
 }
 
 .btn-eliminar {
   width: auto;
   margin-top: 10px;
   margin-left: auto;
-  margin-right: auto; /* Centra el botón horizontalmente */
+  margin-right: auto;
+  /* Centra el botón horizontalmente */
   display: block;
 }
 
 .btn-comprar {
-  width: 100%; /* Cambia esto si deseas que el botón no ocupe todo el ancho */
-  max-width: 300px; /* Limita el tamaño máximo del botón */
-  margin: 0 auto; /* Centra el botón de pago */
+  width: 100%;
+  /* Cambia esto si deseas que el botón no ocupe todo el ancho */
+  max-width: 300px;
+  /* Limita el tamaño máximo del botón */
+  margin: 0 auto;
+  /* Centra el botón de pago */
 }
+
+/*Efectos hover para los botones*/
+.btn-success {
+    font-family: 'Nunito';
+    font-weight: 700;
+    background-color: #198754; /* Color de fondo para btn-success */
+    font-size: 1.1rem;
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    cursor: pointer;
+    transition: background-color 0.3s ease, font-size 0.3s ease, transform 0.3s ease; /* Transición suave */
+}
+
+.btn-success:hover {
+    background-color: #157347; /* Color de fondo al hacer hover */
+    font-size: 1.2rem; /* Aumentar tamaño de la fuente */
+    transform: scale(1.05); /* Aumentar el tamaño ligeramente */
+}
+
+.btn-danger {
+    font-family: 'Nunito';
+    font-weight: 700;
+    background-color: #dc3545; /* Color de fondo para btn-danger */
+    font-size: 1.1rem;
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    cursor: pointer;
+    transition: background-color 0.3s ease, font-size 0.3s ease, transform 0.3s ease; /* Transición suave */
+}
+
+.btn-danger:hover {
+    background-color: #c82333; /* Color de fondo al hacer hover */
+    font-size: 1.2rem; /* Aumentar tamaño de la fuente */
+    transform: scale(1.05); /* Aumentar el tamaño ligeramente */
+}
+
 
 /* Evitar que el botón se estire en pantallas pequeñas */
 @media (max-width: 768px) {
+
   .btn-eliminar,
   .btn-comprar {
-    width: 100%; 
+    width: 100%;
     max-width: none;
   }
+
   .img-container {
     display: flex;
     justify-content: center;

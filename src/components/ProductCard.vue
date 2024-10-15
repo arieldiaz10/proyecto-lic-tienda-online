@@ -10,7 +10,7 @@
       <p class="card-text">{{ producto.descripcion }}</p>
       <div class="d-flex justify-content-between align-items-center">
         <span class="text-success fw-bold">${{ producto.precio }}</span>
-        <button class="btn btn-primary" @click="agregarAlCarrito">Agregar a <i class="fa-solid fa-cart-shopping"></i> </button>
+        <button class="btn btn-primary btn-agregar" @click="agregarAlCarrito">Agregar <i class="fa-solid fa-cart-shopping"></i> </button>
       </div>
     </div>
   </div>
@@ -86,7 +86,7 @@ export default {
   <style scoped>
   .product-card {
     overflow: hidden;
-    border: 2px solid #106cc8df;
+    border: 3px solid #e0e0e0;
     border-radius: 20px;
     padding: 16px;
     text-align: center;
@@ -106,6 +106,39 @@ export default {
   object-fit: cover;
   transition: transform 0.3s ease; /* Transición suave para la imagen */
 }
+
+.card-title{
+  font-size: 1.4rem;
+  font-family: 'Hind Madurai';
+  font-weight: 600;
+  color: #242424;
+}
+
+.card-text {
+  font-family: 'Nunito';
+  color: #494949;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.btn-agregar {
+    font-family: 'Nunito';
+    font-weight: 700;
+    background-color: #0d6efd; /* Color de fondo */
+    font-size: 1.1rem;
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    cursor: pointer;
+    transition: background-color 0.3s ease, font-size 0.3s ease, transform 0.3s ease; /* Transición suave */
+}
+
+.btn-agregar:hover {
+    background-color: #0056b3; /* Color de fondo al hacer hover */
+    font-size: 1.15rem; /* Aumentar tamaño de la fuente */
+    transform: scale(1.04); /* Aumentar el tamaño ligeramente */
+}
+
+
 
 /* Al pasar el mouse sobre la tarjeta, la imagen se agranda */
 .product-card:hover .card-img-top {

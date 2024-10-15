@@ -68,7 +68,6 @@ export default {
 <style scoped>
 .franja-bienvenida {
   background-color: #455E9C;
-  /*background: linear-gradient(135deg, #f0f8ff, #103356); /* Degradado diagonal */
   padding: 10px 0; /* Espaciado vertical */
   border-bottom: 2px solid #106cc8;
   border-radius: 15px; /* Redondea las esquinas */
