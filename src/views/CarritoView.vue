@@ -1,8 +1,7 @@
 <template>
   <div class="container mt-5">
-    <h2 class="text-center mb-4">Productos en el carrito</h2>
-
     <div v-if="productosEnCarrito.length">
+      <h2 class="text-center mb-4">Productos en el carrito</h2>
       <transition-group name="fade" tag="div" class="cart-items">
         <div v-for="item in productosEnCarrito" :key="item.id" class="card mb-3 shadow-sm">
           <div class="row g-0 producto-contenedor">
@@ -15,7 +14,7 @@
                 <p class="card-text"><span>Cantidad:</span> {{ item.cantidad }}</p>
                 <p class="card-text"><span>Precio:</span> ${{ item.precio }}</p>
                 <button class="btn btn-danger btn-md btn-eliminar" @click="eliminarProducto(item.id)">
-                  <i class="fa-solid fa-trash"></i> Eliminar 
+                  <i class="fa-solid fa-trash"></i> Eliminar
                 </button>
               </div>
             </div>
@@ -29,9 +28,13 @@
     </div>
 
     <div v-else>
-      <div class="alert alert-warning d-flex align-items-center" role="alert">
-        Aún no has agregado ningún producto al carrito
+      <div class="alert alert-warning d-flex align-items-center justify-content-center" role="alert">
+        <p>
+          Aún no has agregado ningún producto en el carrito
+          <i class="fa-solid fa-face-frown"></i><i class="fa-solid fa-heart-crack"></i>
+        </p>
       </div>
+
     </div>
   </div>
 </template>
@@ -64,8 +67,7 @@ export default {
       } catch (e) {
         return require(`@/assets/products/product1.jpg`);
       }
-    },
-
+    }
   }
 };
 </script>
@@ -75,19 +77,16 @@ export default {
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s ease, transform 0.3s ease;
-  /* Tiempo reducido para más fluidez */
 }
 
 .fade-enter {
   opacity: 0;
   transform: scale(1.05);
-  /* Comienza un poco más grande */
 }
 
 .fade-leave-to {
   opacity: 0;
   transform: scale(1.05);
-  /* Termina un poco más grande */
 }
 
 /*Titulo de la página*/
@@ -137,7 +136,6 @@ h2 {
   width: 200px;
   height: 200px;
   object-fit: cover;
-  /* Asegura que la imagen se ajuste al contenedor sin deformarse */
   border-radius: 10px;
 }
 
@@ -152,54 +150,56 @@ h2 {
   margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
-  /* Centra el botón horizontalmente */
   display: block;
 }
 
 .btn-comprar {
   width: 100%;
-  /* Cambia esto si deseas que el botón no ocupe todo el ancho */
   max-width: 300px;
-  /* Limita el tamaño máximo del botón */
   margin: 0 auto;
-  /* Centra el botón de pago */
 }
 
 /*Efectos hover para los botones*/
 .btn-success {
-    font-family: 'Nunito';
-    font-weight: 700;
-    background-color: #198754; /* Color de fondo para btn-success */
-    font-size: 1.1rem;
-    color: white; /* Color del texto */
-    border: none; /* Sin borde */
-    cursor: pointer;
-    transition: background-color 0.3s ease, font-size 0.3s ease, transform 0.3s ease; /* Transición suave */
+  font-family: 'Nunito';
+  font-weight: 700;
+  background-color: #198754;
+  font-size: 1.1rem;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, font-size 0.3s ease, transform 0.3s ease;
 }
 
 .btn-success:hover {
-    background-color: #157347; /* Color de fondo al hacer hover */
-    font-size: 1.2rem; /* Aumentar tamaño de la fuente */
-    transform: scale(1.05); /* Aumentar el tamaño ligeramente */
+  background-color: #157347;
+  font-size: 1.2rem;
+  transform: scale(1.05);
 }
 
 .btn-danger {
-    font-family: 'Nunito';
-    font-weight: 700;
-    background-color: #dc3545; /* Color de fondo para btn-danger */
-    font-size: 1.1rem;
-    color: white; /* Color del texto */
-    border: none; /* Sin borde */
-    cursor: pointer;
-    transition: background-color 0.3s ease, font-size 0.3s ease, transform 0.3s ease; /* Transición suave */
+  font-family: 'Nunito';
+  font-weight: 700;
+  background-color: #dc3545;
+  font-size: 1.1rem;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, font-size 0.3s ease, transform 0.3s ease;
 }
 
 .btn-danger:hover {
-    background-color: #c82333; /* Color de fondo al hacer hover */
-    font-size: 1.2rem; /* Aumentar tamaño de la fuente */
-    transform: scale(1.05); /* Aumentar el tamaño ligeramente */
+  background-color: #c82333;
+  font-size: 1.2rem;
+  transform: scale(1.05);
 }
 
+/* Alerta cuando no se ha agregado ningún elemento al carrito*/
+.alert {
+  font-family: 'Poppins';
+  font-size: 2rem;
+  text-align: center;
+}
 
 /* Evitar que el botón se estire en pantallas pequeñas */
 @media (max-width: 768px) {
@@ -213,6 +213,10 @@ h2 {
   .img-container {
     display: flex;
     justify-content: center;
+  }
+
+  .alert {
+    font-size: 2rem;
   }
 }
 </style>
