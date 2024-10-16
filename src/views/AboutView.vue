@@ -96,26 +96,27 @@ p {
 }
 
 .bg-primary {
-  background-color: #007bff !important;
+  background-color: #5983E0 !important;
 }
 
 .text-info {
-  color: #17a2b8 !important;
+  color: #23345e !important;
 }
 
 .text-success {
-  color: #28a745 !important;
+  color: #688bb7 !important;
 }
 
 .btn-buscar-productos {
-  background-color: #5983E0;
+  background-color: #2761ff;
   padding: 0.75rem 2rem;
   border: none;
   font-weight: bold;
+  color: white;
 }
 
 .shadow-lg {
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(207, 210, 216, 0.1);
 }
 
 @media (max-width: 768px) {
