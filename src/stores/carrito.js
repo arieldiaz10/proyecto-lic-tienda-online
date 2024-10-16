@@ -24,6 +24,13 @@ export const useCarritoStore = defineStore('carrito', {
                 this.productosEnCarrito.push({ ...producto, cantidad: 1}); //Agregar un  nuevo producto
             }
         },
+        eliminarProductoCarrito(idProducto) {
+            // Busca el índice del producto que se desea eliminar
+            const index = this.productosEnCarrito.findIndex(item => item.id === idProducto);
+            if (index !== -1) {
+                this.productosEnCarrito.splice(index, 1); // Elimina el producto en el índice encontrado
+            }
+        },
         limpiarCarrito(){
             this.productosEnCarrito = [];
         }
