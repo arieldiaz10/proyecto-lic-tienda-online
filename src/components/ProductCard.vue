@@ -53,17 +53,7 @@ export default {
     };
     
   },
-  setup(props){
-    const carritoStore = useCarritoStore();
-    const agregarAlCarrito = () => {
-      carritoStore.agregarProductoCarrito(props.producto);
-    };
-
-    return {
-      agregarAlCarrito
-    };
-    
-  },
+ 
   
   computed: {
     cardColor() {
