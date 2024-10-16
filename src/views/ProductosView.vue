@@ -2,13 +2,18 @@
   Vista de "Productos"
 -->
 <template>
+
   <div class="container mt-4">
-    <h1 class="mb-4">Productos disponibles</h1>
+    <div class="franja-bienvenida text-center">
+      <h1>Explora nuestros productos</h1>
+      <p>¡Aquí encontrarás todo lo que buscas al mejor precio posible!</p>
+    </div>
+
     <div class="row">
       <!-- Recorrer la lista de productos y mostrar cada uno en una tarjeta -->
-      <div class="col-md-4" v-for="producto in productos" :key="producto.id">
+      <div class="product-container col-12 col-sm-6 col-md-3 mb-4" v-for="producto in productos" :key="producto.id">
         <ProductCard
-          :image="require('../assets/products/product1.jpg')" 
+          :imagePath="producto.imagen_path" 
           :producto = "producto"
         />
       </div>
@@ -46,7 +51,7 @@ export default {
       fetch('https://total-market.onrender.com/productos')
       .then(respuesta => respuesta.json())
       .then((productosRespuesta) => {
-        console.log(productosRespuesta);
+        console.log(productosRespuesta[productosRespuesta.length -1].imagen_path);
         
         //Si se han obtenido productos en la petición a la base de datos
         if(productosRespuesta.length > 0) {
@@ -59,3 +64,34 @@ export default {
 };
 </script>
 
+
+<style scoped>
+.franja-bienvenida {
+  background-color: #455E9C;
+  padding: 10px 0; /* Espaciado vertical */
+  border-bottom: 2px solid #106cc8;
+  border-radius: 15px; /* Redondea las esquinas */
+  margin-bottom: 20px; /* Separación debajo de la franja */
+}
+
+.franja-bienvenida h1, .franja-bienvenida p {
+  color: #ffffff; /* Color del texto */
+  margin: 0;
+}
+.franja-bienvenida h1 {
+  font-family: 'Hind Madurai';
+  font-size: 2rem;
+}
+
+.franja-bienvenida p{
+  font-family: 'Poppins';
+  font-size: 1.3rem;
+}
+
+@media (max-width: 768px) {
+  .product-container {
+    display: flex;
+    justify-content: center;
+  }
+}
+</style>

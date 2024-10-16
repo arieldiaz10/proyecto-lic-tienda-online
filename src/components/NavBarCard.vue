@@ -24,10 +24,6 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/productos">Productos</router-link>
           </li>
-          <!--Link a la vista (página) "Categorías"-->
-          <li class="nav-item">
-            <router-link class="nav-link" to="/categorias">Categorías</router-link>
-          </li>
           <!--Link a la vista (página) "Acerca de"-->
           <li class="nav-item">
             <router-link class="nav-link" to="/about">Acerca de</router-link>
@@ -37,7 +33,7 @@
             <router-link class="nav-link" to="/preguntasfrecuentes">FAQs</router-link>
           </li>
           <!--Link a la vista (página) "Carrito de compras"-->
-          <li class="nav-item">
+          <li class="carrito nav-item">
             <router-link class="nav-link" to="/carrito">
               <i class="bi bi-cart"></i> <span> {{ totalProductos }}</span>
             </router-link>
@@ -89,5 +85,22 @@ export default {
   font-weight: 400;
   font-size: 1.1rem;
 
+}
+
+.carrito {
+  background-color:#eaecee;
+  border-radius: 10px;
+}
+
+.carrito i, span {
+  color: #23345E;
+  font-weight: bold;
+}
+
+@media (max-width: 1023px){
+  .carrito{
+    width: 50px;
+    text-align: center;
+  }
 }
 </style>

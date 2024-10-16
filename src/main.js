@@ -10,6 +10,4 @@ const pinia = createPinia();
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-
-
 createApp(App).use(pinia).use(router).mount('#app')
