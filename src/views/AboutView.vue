@@ -8,7 +8,7 @@
       <div class="col-lg-12 mb-4">
         <div class="card shadow-lg border-0 p-3 bg-primary text-white rounded">
           <div class="card-body text-center">
-            <h1 class="mb-4">Acerca de TotalMarket</h1>
+            <h1 class="mb-4">Acerca de <span>TotalMarket <i class="bi bi-bag-heart-fill"></i></span></h1>
             <p class="lead">
               Bienvenidos a <strong>TotalMarket</strong>, tu tienda en línea de confianza. 
               Aquí encontrarás una amplia variedad de productos de alta calidad, 
@@ -32,7 +32,7 @@
       <div class="col-lg-6 mb-4 d-flex align-items-stretch">
         <div class="card shadow-lg border-info p-3 rounded">
           <div class="card-body text-center">
-            <h2 class="mb-3 text-info">Nuestra Misión</h2>
+            <h2 class="mb-3 text-info">Nuestra Misión <i class="fa-solid fa-hand-holding-heart"></i></h2>
             <p>
               En <strong>TotalMarket</strong>, nuestra misión es proporcionar a nuestros clientes
               productos de calidad superior a precios accesibles, garantizando siempre 
@@ -45,7 +45,7 @@
       <div class="col-lg-6 mb-4 d-flex align-items-stretch">
         <div class="card shadow-lg border-success p-3 rounded">
           <div class="card-body text-center">
-            <h2 class="mb-3 text-success">Nuestra Visión</h2>
+            <h2 class="mb-3 text-success">Nuestra Visión <i class="fa-solid fa-trophy"></i></h2>
             <p>
               Aspiramos a ser la tienda en línea líder en el mercado global, conocida por 
               su diversidad de productos y su compromiso con la satisfacción del cliente. 
@@ -57,7 +57,7 @@
 
       <!-- Botón para explorar productos -->
       <div class="col-lg-12 text-center mt-4">
-        <a href="#" class="btn btn-lg btn-warning text-dark font-weight-bold">Explora nuestros productos</a>
+        <router-link to="/productos" class="btn btn-lg btn-buscar-productos text-dark">Explora nuestros productos <i class="fa-solid fa-magnifying-glass"></i></router-link>
       </div>
     </div>
   </div>
@@ -66,6 +66,17 @@
 <style scoped>
 h1 {
   font-size: 3rem;
+  font-family: 'Nunito';
+}
+
+h1 span {
+  font-family: 'Montserrat';
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+p {
+  font-family: 'Poppins';
 }
 
 h2 {
@@ -96,13 +107,21 @@ p {
   color: #28a745 !important;
 }
 
-.btn-warning {
-  background-color: #ffc107;
+.btn-buscar-productos {
+  background-color: #5983E0;
   padding: 0.75rem 2rem;
+  border: none;
+  font-weight: bold;
 }
 
 .shadow-lg {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
 }
 </style>
 <script>

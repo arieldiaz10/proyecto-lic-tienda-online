@@ -124,21 +124,19 @@ export default {
 .btn-agregar {
     font-family: 'Nunito';
     font-weight: 700;
-    background-color: #0d6efd; /* Color de fondo */
+    background-color: #0d6efd; 
     font-size: 1.1rem;
-    color: white; /* Color del texto */
-    border: none; /* Sin borde */
+    color: white; 
+    border: none; 
     cursor: pointer;
     transition: background-color 0.3s ease, font-size 0.3s ease, transform 0.3s ease; /* Transición suave */
 }
 
 .btn-agregar:hover {
-    background-color: #0056b3; /* Color de fondo al hacer hover */
-    font-size: 1.15rem; /* Aumentar tamaño de la fuente */
-    transform: scale(1.04); /* Aumentar el tamaño ligeramente */
+    background-color: #0056b3; 
+    font-size: 1.15rem; 
+    transform: scale(1.04); 
 }
-
-
 
 /* Al pasar el mouse sobre la tarjeta, la imagen se agranda */
 .product-card:hover .card-img-top {
