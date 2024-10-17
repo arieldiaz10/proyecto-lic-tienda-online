@@ -4,14 +4,16 @@
 <section class="bg-light py-3 py-md-5">
   <div class="container">
     <div class="row gy-5 gy-lg-0 align-items-lg-center">
-      <div class="col-12 col-lg-6">
+      <div class="contenedor-imagen col-12 col-lg-6">
         <img class="img-fluid rounded" loading="lazy" src="../assets/question.png">
       </div>
       <div class="col-12 col-lg-6">
     <div class="row justify-content-lg-end">
         <div class="col-12 col-xl-11 p-4 shadow-sm bg-light rounded">
-            <h2 class="h1 mb-4 fw-bold text-primary" >¿Cómo podemos ayudarte?</h2>
-            <p class="lead fs-5 text-muted mb-4" >Esperamos que encuentres respuestas a tus preguntas. Si necesitas ayuda, busca tu consulta en nuestro centro de asistencia o contáctanos por correo electrónico.</p>
+            <div class="contenedor-texto-superior">
+                <h2 class="h1 mb-4 fw-bold text-primary" >¿Cómo podemos ayudarte?</h2>
+                <p class="lead fs-5 mb-4" >Esperamos que encuentres respuestas a tus preguntas. Si necesitas ayuda, busca tu consulta en nuestro centro de asistencia o contáctanos por correo electrónico.</p>
+            </div>
             <div class="accordion accordion-flush" id="accordionExample">
                 <div class="accordion-item border-bottom mb-3">
                     <h2 class="accordion-header" id="headingOne">
@@ -63,3 +65,35 @@ export default {
     name: "FAQsCard"
 } 
 </script>
+
+<style scoped>
+.contenedor-texto-superior  h2 {
+    text-align: center;
+}
+
+.contenedor-texto-superior p {
+    text-align: justify;
+}
+
+h2 {
+    font-family: 'Nunito';
+}
+p, .accordion-body {
+    font-family: 'Poppins';
+}
+
+.accordion-body {
+    color: #656060;
+}
+
+@media (max-width: 768px) {
+   .img-fluid {
+    width: 60%;
+   }
+   .contenedor-imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   }
+}
+</style>

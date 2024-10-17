@@ -30,7 +30,7 @@
 
       <!-- Sección Misión y Visión -->
       <div class="col-lg-6 mb-4 d-flex align-items-stretch">
-        <div class="card shadow-lg border-info p-3 rounded">
+        <div class="card shadow-lg p-3 rounded seccion-mision">
           <div class="card-body text-center">
             <h2 class="mb-3 text-info">Nuestra Misión <i class="fa-solid fa-hand-holding-heart"></i></h2>
             <p>
@@ -43,7 +43,7 @@
       </div>
 
       <div class="col-lg-6 mb-4 d-flex align-items-stretch">
-        <div class="card shadow-lg border-success p-3 rounded">
+        <div class="card shadow-lg p-3 rounded seccion-vision">
           <div class="card-body text-center">
             <h2 class="mb-3 text-success">Nuestra Visión <i class="fa-solid fa-trophy"></i></h2>
             <p>
@@ -57,7 +57,7 @@
 
       <!-- Botón para explorar productos -->
       <div class="col-lg-12 text-center mt-4">
-        <router-link to="/productos" class="btn btn-lg btn-buscar-productos text-dark">Explora nuestros productos <i class="fa-solid fa-magnifying-glass"></i></router-link>
+        <router-link to="/productos" class="btn btn-lg btn-buscar-productos">Explora nuestros productos <i class="fa-solid fa-magnifying-glass"></i></router-link>
       </div>
     </div>
   </div>
@@ -93,6 +93,14 @@ p {
 
 .card {
   border-radius: 20px;
+}
+
+.seccion-mision {
+  border: 3px solid #455E9C;
+}
+
+.seccion-vision {
+  border: 3px solid #688bb7;
 }
 
 .bg-primary {

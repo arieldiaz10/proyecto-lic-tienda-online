@@ -11,13 +11,13 @@
     <!--Elemento contenedor de las imágenes"-->
     <div class="carousel-inner">
       <div class="carousel-item active slide1" data-bs-intervall="5000">
-        <img src="../assets/persona_comprando.svg" class="d-block w-100" alt="...">
+        <img src="../assets/slide1.jpg" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item slide2" data-bs-intervall="5000">
-        <img src="../assets/agregando_a_carrito.svg" class="d-block w-100" alt="...">
+        <img src="../assets/slide2.jpg" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item slide3" data-bs-intervall="5000">
-        <img src="../assets/app_compras_online.svg" class="d-block w-100" alt="...">
+        <img src="../assets/slide3.jpg" class="d-block w-100" alt="...">
       </div>
     </div>
     <!--Botones "Adelante y atrás"-->
@@ -38,31 +38,21 @@ export default {
 
 <style scoped>
 /*Estilos para el elemento contenedor del carrusel*/
-.slide1{
-  background-color: #a3e4d7;
+.carousel-inner {
+  width: 90%;
+  margin: 0 auto;
 }
 
-.slide2 {
- background-color: #dcffff;
-}
 
-.slide3 {
-  background-color: #d8dfec;
-}
-
-.carousel-item img{
-  padding: 2rem;
-  height: 70vh;
-}
-
-.carousel-slide {
-    text-align: center;
-}
-
-/*Diseño responsive para las imagenes*/
+/*Diseño responsive para las imagenes del carrusel*/
 @media (max-width: 767px) { 
-  .carousel-item img {
-    height: 35vh;
-  }
+  .carousel-inner {
+  width: 100%;
+}
+.carousel-item img{
+  width: 100%;
+  height: auto;
+  object-fit: contain; /* Ajusta a las dimensiones del contenedor sin deformarse */
+}
 }
 </style>
