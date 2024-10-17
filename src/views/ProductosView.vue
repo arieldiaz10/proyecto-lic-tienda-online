@@ -48,6 +48,7 @@ export default {
   methods: {
     //Método que consulta a la base de datos los productos existentes
     consultarProductos() {
+      //fetch('http://localhost:4000/productos')
       fetch('https://total-market.onrender.com/productos')
       .then(respuesta => respuesta.json())
       .then((productosRespuesta) => {
